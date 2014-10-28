@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Dcgen::VERSION
   spec.authors       = ["Juan Breinlinger"]
   spec.email         = ["<juan.brein@breins.net>"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = %q{dcgen will generate a destructiveChanges.xml comparing two source directories}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"

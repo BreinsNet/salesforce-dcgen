@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<% if not @metadata[:apexclass].empty? %>
+    <types>
+  <% for @apexclass in @metadata[:apexclass] %>
+      <members><%= @apexclass %></members>
+  <% end %>
+      <name>ApexClass</name>
+    </types>
+<% end %>
+<% if not @metadata[:apexpage].empty? %>
+    <types>
+  <% for @apexpage in @metadata[:apexpage] %>
+      <members><%= @apexpage %></members>
+  <% end %>
+      <name>ApexPage</name>
+    </types>
+<% end %>
+<% if not @metadata[:group].empty? %>
+    <types>
+  <% for @group in @metadata[:group] %>
+      <members><%= @group %></members>
+  <% end %>
+      <name>Group</name>
+    </types>
+<% end %>
+<% if not @metadata[:customfield].empty? %>
+    <types>
+  <% for @customfield in @metadata[:customfield] %>
+      <members><%= @customfield %></members>
+  <% end %>
+      <name>CustomField</name>
+    </types>
+<% end %>
+<% if not @metadata[:approvalprocess].empty? %>
+    <types>
+  <% for @approvalprocess in @metadata[:approvalprocess] %>
+      <members><%= @approvalprocess %></members>
+  <% end %>
+      <name>ApprovalProcess</name>
+    </types>
+<% end %>
+<% if not @metadata[:permissionset].empty? %>
+    <types>
+  <% for @permissionset in @metadata[:permissionset] %>
+      <members><%= @permissionset %></members>
+  <% end %>
+      <name>PermissionSet</name>
+    </types>
+<% end %>
+<% if not @metadata[:workflow].empty? %>
+    <types>
+  <% for @workflow in @metadata[:workflow] %>
+      <members><%= @workflow %></members>
+  <% end %>
+      <name>Workflow</name>
+    </types>
+<% end %>
+</Package>

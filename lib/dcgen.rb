@@ -1,5 +1,4 @@
 require "dcgen/version"
+require "dcgen/app"
+require "erb"
 
-module Dcgen
-  # Your code goes here...
-end

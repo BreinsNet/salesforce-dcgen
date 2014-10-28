@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+require 'dcgen'
+require 'optparse'
+require 'pp'
+
+options = {}
+
+parser = OptionParser.new do |opts|
+
+  opts.banner = 'Usage: dcgen [options]'
+
+  opts.on('-m', '--master dir', 'Source dir') do |name|
+    options[:master] = name;
+  end
+
+  opts.on('-d', '--destination dir', 'Destination dir') do |age|
+    options[:destination] = age;
+  end
+
+  opts.on('-h', '--help', 'Displays Help') do
+    puts opts
+    exit
+  end
+
+  if ARGV.empty?
+    puts opts
+    exit 1
+  end
+
+end
+
+parser.parse!
+
+
+if options[:master].nil?
+  puts "error: you must specify master dir"
+  exit 1
+end
+
+if options[:destination].nil?
+  puts "error: you must specify destination dir"
+  exit 1
+end
+
+dcgen = Dcgen::App.new
+
+dcgen.master = options[:master]
+dcgen.destination = options[:destination]
+
+dcgen.generate_destructive_changes
+
+
