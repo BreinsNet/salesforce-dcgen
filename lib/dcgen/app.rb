@@ -26,11 +26,11 @@ module Dcgen
       dc_erb_tpl = File.open(File.join(File.dirname(__FILE__),'..','..','tpl','destructiveChanges.xml.erb')).read
       renderer = ERB.new(dc_erb_tpl,0,'>') 
 
-      puts "info: destructiveChanges.xml successfully generated"
-
       File.open('destructiveChanges.xml','w') do |file|
         file.write renderer.result(binding)
       end
+
+      puts "info: destructiveChanges.xml successfully generated"
 
     end
 

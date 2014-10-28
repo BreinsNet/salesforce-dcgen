@@ -30,7 +30,12 @@ parser = OptionParser.new do |opts|
 
 end
 
-parser.parse!
+begin
+  parser.parse!
+rescue => e
+  puts "error: #{e}"
+  exit 1
+end
 
 
 if options[:master].nil?
@@ -43,11 +48,16 @@ if options[:destination].nil?
   exit 1
 end
 
-dcgen = Dcgen::App.new
+begin
+  dcgen = Dcgen::App.new
 
-dcgen.master = options[:master]
-dcgen.destination = options[:destination]
+  dcgen.master = options[:master]
+  dcgen.destination = options[:destination]
 
-dcgen.generate_destructive_changes
+  dcgen.generate_destructive_changes
+rescue => e
+  puts "error: #{e}"
+  exit 1
+end
 
 
