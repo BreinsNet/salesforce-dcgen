@@ -1,7 +1,7 @@
 module Dcgen
   class App
 
-    attr_accessor :master, :destination
+    attr_accessor :master, :destination, :output
 
     def initialize 
 
@@ -26,11 +26,13 @@ module Dcgen
       dc_erb_tpl = File.open(File.join(File.dirname(__FILE__),'..','..','tpl','destructiveChanges.xml.erb')).read
       renderer = ERB.new(dc_erb_tpl,0,'>') 
 
-      File.open('destructiveChanges.xml','w') do |file|
+      out_file = @output || 'destructiveChanges.xml' 
+
+      File.open(out_file,'w') do |file|
         file.write renderer.result(binding)
       end
 
-      puts "info: destructiveChanges.xml successfully generated"
+      puts "info: #{out_file} successfully generated"
 
     end
 

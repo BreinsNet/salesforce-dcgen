@@ -10,12 +10,16 @@ parser = OptionParser.new do |opts|
 
   opts.banner = 'Usage: dcgen [options]'
 
-  opts.on('-m', '--master dir', 'Source dir') do |name|
-    options[:master] = name;
+  opts.on('-m', '--master dir', 'Source dir') do |dir|
+    options[:master] = dir;
   end
 
-  opts.on('-d', '--destination dir', 'Destination dir') do |age|
-    options[:destination] = age;
+  opts.on('-d', '--destination dir', 'Destination dir') do |dir|
+    options[:destination] = dir;
+  end
+
+  opts.on('-o', '--output FILE', 'Output file to write instead of destructiveChange.xml') do |file|
+    options[:output] = file;
   end
 
   opts.on('-h', '--help', 'Displays Help') do
@@ -53,6 +57,7 @@ begin
 
   dcgen.master = options[:master]
   dcgen.destination = options[:destination]
+  dcgen.output = options[:output] if not options[:output].nil?
 
   dcgen.generate_destructive_changes
 rescue => e
