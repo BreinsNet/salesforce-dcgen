@@ -1,11 +1,12 @@
 module Dcgen
   class App
 
-    attr_accessor :master, :destination, :output
+    attr_accessor :master, :destination, :output, :exclude
 
     def initialize 
 
       @metadata = {}
+      @exclude = []
 
     end
 
@@ -48,7 +49,8 @@ module Dcgen
         require_relative plugin
 
         plugin_name = plugin.match(/^.*\/(.*).rb$/)[1]
-        @metadata[plugin_name.to_sym] = eval "Dcgen::#{plugin_name} @master, @destination"
+        plugin_metadata = eval "Dcgen::#{plugin_name} @master, @destination"
+        @metadata[plugin_name.to_sym] = plugin_metadata - @exclude unless plugin_metadata.nil?
 
       end
 
