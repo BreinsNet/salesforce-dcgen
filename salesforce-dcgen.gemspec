@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dcgen/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "dcgen"
+  spec.name          = "salesforce-dcgen"
   spec.version       = Dcgen::VERSION
   spec.authors       = ["Juan Breinlinger"]
   spec.email         = ["<juan.brein@breins.net>"]
-  spec.summary       = %q{dcgen will generate a destructiveChanges.xml comparing two source directories}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{dcgen will generate a destructiveChanges.xml by comparing two source directories}
+  spec.description   = %q{todo later}
   spec.homepage      = ""
   spec.license       = "MIT"
 
