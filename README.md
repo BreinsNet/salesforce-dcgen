@@ -1,24 +1,25 @@
 # Dcgen
 
-TODO: Write a gem description
+dcgen is a simple tool that generates a destructiveChanges.xml by comparing
+two salesforce source directories. 
+
+A typical usage example is if you use an SCM to manage your salesforce code and
+metadata. You can compare your repository contents against what is in a sandbox. 
+Any element that is in you sandbox but is not on your SCM will be included in the
+destructiveChange.xml.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'dcgen'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install dcgen
-
+```
+# gem install salesforce-dcgen
+```
 ## Usage
 
-TODO: Write usage instructions here
+To get destructiveChanges.xml between two directories just run:
+
+```
+$ dcgen -m dir/to/scm/repo -d dir/to/sandbox/source/code
+```
 
 ## Contributing
 
