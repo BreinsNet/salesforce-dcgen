@@ -48,12 +48,12 @@
       <name>PermissionSet</name>
     </types>
 <% end %>
-<% if not @metadata[:workflow].empty? %>
+<% if not @metadata[:workflowrule].empty? %>
     <types>
-  <% for @workflow in @metadata[:workflow] %>
-      <members><%= @workflow %></members>
+  <% for @workflowrule in @metadata[:workflowrule] %>
+      <members><%= @workflowrule %></members>
   <% end %>
-      <name>Workflow</name>
+      <name>WorkflowRule</name>
     </types>
 <% end %>
 </Package>
