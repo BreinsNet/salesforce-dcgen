@@ -21,6 +21,23 @@ To get destructiveChanges.xml between two directories just run:
 $ dcgen -m dir/to/scm/repo -d dir/to/sandbox/source/code
 ```
 
+## Metadata API supported:
+
+At the moment the following metadata is supported:
+
+apexclass
+apexpage
+approvalprocess
+customfield
+group
+permissionset
+workflowrule
+labels
+
+More to come...
+
+Checkout the code, at the moment is VERY easy to add more metadata
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/dcgen/fork )

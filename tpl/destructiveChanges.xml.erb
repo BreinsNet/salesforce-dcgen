@@ -56,4 +56,12 @@
       <name>WorkflowRule</name>
     </types>
 <% end %>
+<% if not @metadata[:label].empty? %>
+    <types>
+  <% for @label in @metadata[:label] %>
+      <members><%= @label %></members>
+  <% end %>
+      <name>CustomLabel</name>
+    </types>
+<% end %>
 </Package>

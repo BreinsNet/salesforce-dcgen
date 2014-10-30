@@ -26,6 +26,11 @@ parser = OptionParser.new do |opts|
     options[:exclude] = exclude.split(',')
   end
 
+  opts.on('-v', '--version', 'Show current version') do
+    puts Dcgen::VERSION
+    exit 0
+  end
+
   opts.on('-h', '--help', 'Displays Help') do
     puts opts
     exit
