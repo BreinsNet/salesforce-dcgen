@@ -4,7 +4,7 @@ module Dcgen
 
   def self.customfield master , destination
 
-    remove_fields = []
+    remove_customfields = []
 
     master_objects = Dir.glob(master + '/objects/*object').map {|c| c.match(/^.*\/(.*).object$/)[1] }
 
@@ -24,14 +24,19 @@ module Dcgen
         # Find all the customfields that are in destination, if they are not present in
         # master, then they have to be in the remove list
         destination_doc.xpath('//fields/fullName').each do |field|
-          remove_fields << "#{obj}.#{field.text}" if master_doc.xpath("//fields[fullName=\"#{field.text}\"]").empty?
+          remove_customfields << "#{obj}.#{field.text}" if master_doc.xpath("//fields[fullName=\"#{field.text}\"]").empty?
         end
 
       end
 
     end
 
-    remove_fields
+    puts "CustomFields:" if not remove_customfields.empty?
+    remove_customfields.each do |customfield|
+      puts "  #{customfield}"
+    end
+
+    remove_customfields
 
   end
 end

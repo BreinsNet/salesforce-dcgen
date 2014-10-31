@@ -33,7 +33,29 @@ module Dcgen
         file.write renderer.result(binding)
       end
 
-      puts "info: #{out_file} successfully generated"
+      puts "
+File generated:
+===============
+
+#{out_file}
+      
+"  
+
+    end
+
+    def print_header
+
+      puts "
+Diff between:
+=============
+      
+   master:      #{master} 
+   destination: #{destination}:
+      
+Changes detected:
+=================
+      
+" 
 
     end
 
@@ -41,6 +63,9 @@ module Dcgen
 
       # Validate directories
       validate_directories
+
+      # header output
+      print_header
 
       # Load plugins and build metadata variables
       plugins = Dir.glob(File.dirname(__FILE__) + "/plugins/*" )

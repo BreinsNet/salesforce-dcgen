@@ -31,6 +31,11 @@ module Dcgen
 
     end
 
+    puts "Labels:" if not remove_labels.empty?
+    remove_labels.each do |label|
+      puts "  #{label}"
+    end
+
     remove_labels
 
   end

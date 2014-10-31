@@ -31,6 +31,11 @@ module Dcgen
 
     end
 
+    puts "WorkflowRules:" if not remove_workflowrules.empty?
+    remove_workflowrules.each do |workflowrule|
+      puts "  #{workflowrule}"
+    end
+
     remove_workflowrules
 
   end
