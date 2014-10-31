@@ -51,7 +51,7 @@ Diff between:
       
    master:      #{master} 
    destination: #{destination}:
-   excluded: #{@excluded}
+   excluded: #{@exclude}
       
 Changes detected:
 =================
