@@ -12,8 +12,8 @@ module Dcgen
 
     def validate_directories
 
-      @master = File.join(Dir.pwd,@master)
-      @destination = File.join(Dir.pwd,@destination)
+      @master = File.join(Dir.pwd,@master) unless master.match(/^\/.*/)
+      @destination = File.join(Dir.pwd,@destination) unless master.match(/^\/.*/)
       raise ArgumentError, "#{@master} dir not found" if not Dir.exists? @master
       raise ArgumentError, "#{@destination} dir not found" if not Dir.exists? @destination
       raise ArgumentError, "#{@master} package.xml not found" if not File.exists? File.join(@master,'package.xml')
@@ -51,7 +51,7 @@ Diff between:
       
    master:      #{master} 
    destination: #{destination}:
-   excluded: #{@exclude}
+   excluded: #{@exclude.join(' ')}
       
 Changes detected:
 =================
