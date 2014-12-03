@@ -8,6 +8,14 @@
       <name>ApexClass</name>
     </types>
 <% end %>
+<% if not @metadata[:apextrigger].empty? %>
+    <types>
+  <% for @apextrigger in @metadata[:apextrigger] %>
+      <members><%= @apextrigger %></members>
+  <% end %>
+      <name>ApexTrigger</name>
+    </types>
+<% end %>
 <% if not @metadata[:apexpage].empty? %>
     <types>
   <% for @apexpage in @metadata[:apexpage] %>

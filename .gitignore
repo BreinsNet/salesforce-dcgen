@@ -24,3 +24,4 @@ src
 destructiveChanges.xml
 *.swp
 test.rb
+test_data
