@@ -27,12 +27,14 @@ At the moment the following metadata is supported:
 
 apexclass
 apexpage
+apextrigger
 approvalprocess
 customfield
 group
 permissionset
 workflowrule
 labels
+workflow field update
 
 More to come...
 

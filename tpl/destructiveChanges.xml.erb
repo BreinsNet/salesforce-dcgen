@@ -72,4 +72,12 @@
       <name>CustomLabel</name>
     </types>
 <% end %>
+<% if not @metadata[:workflowfieldupdate].empty? %>
+    <types>
+  <% for @workflowfieldupdate in @metadata[:workflowfieldupdate] %>
+      <members><%= @workflowfieldupdate %></members>
+  <% end %>
+      <name>WorkflowFieldUpdate</name>
+    </types>
+<% end %>
 </Package>
