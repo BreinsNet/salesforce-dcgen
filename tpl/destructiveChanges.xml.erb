@@ -80,4 +80,20 @@
       <name>WorkflowFieldUpdate</name>
     </types>
 <% end %>
+<% if not @metadata[:layout].empty? %>
+    <types>
+  <% for @layout in @metadata[:layout] %>
+      <members><%= @layout %></members>
+  <% end %>
+      <name>Layout</name>
+    </types>
+<% end %>
+<% if not @metadata[:customobject].empty? %>
+    <types>
+  <% for @customobject in @metadata[:customobject] %>
+      <members><%= @customobject %></members>
+  <% end %>
+      <name>CustomObject</name>
+    </types>
+<% end %>
 </Package>

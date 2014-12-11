@@ -25,16 +25,18 @@ $ dcgen -m dir/to/scm/repo -d dir/to/sandbox/source/code
 
 At the moment the following metadata is supported:
 
-apexclass
-apexpage
-apextrigger
-approvalprocess
-customfield
-group
-permissionset
-workflowrule
-labels
-workflow field update
+ApexClass
+ApexPage
+ApexTrigger
+ApprovalProcess
+CustomField
+Group
+PermissionSet
+WorkflowRule
+Labels
+Workflow field update
+Layouts
+CustomObjects
 
 More to come...
 
