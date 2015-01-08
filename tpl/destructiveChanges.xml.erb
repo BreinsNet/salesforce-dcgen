@@ -88,6 +88,14 @@
       <name>Layout</name>
     </types>
 <% end %>
+<% if not @metadata[:validationrule].empty? %>
+    <types>
+  <% for @validationrule in @metadata[:validationrule] %>
+      <members><%= @validationrule %></members>
+  <% end %>
+      <name>ValidationRule</name>
+    </types>
+<% end %>
 <% if not @metadata[:customobject].empty? %>
     <types>
   <% for @customobject in @metadata[:customobject] %>

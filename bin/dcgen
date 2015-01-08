@@ -10,6 +10,10 @@ parser = OptionParser.new do |opts|
 
   opts.banner = 'Usage: dcgen [options]'
 
+  opts.on('-q', '--quiet', 'Disable verbose output') do |dir|
+    options[:quiet] = dir
+  end
+
   opts.on('-m', '--master dir', 'Source dir') do |dir|
     options[:master] = dir
   end
@@ -64,6 +68,7 @@ end
 begin
   dcgen = Dcgen::App.new
 
+  dcgen.verbose = ! options[:quiet]
   dcgen.master = options[:master]
   dcgen.destination = options[:destination]
   dcgen.output = options[:output] if not options[:output].nil?

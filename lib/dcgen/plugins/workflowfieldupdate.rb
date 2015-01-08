@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Dcgen
 
-  def self.workflowfieldupdate master , destination
+  def self.workflowfieldupdate master , destination, output = true
 
     remove_fieldupdates = []
 
@@ -31,9 +31,11 @@ module Dcgen
 
     end
 
-    puts "FieldUpdates:" if not remove_fieldupdates.empty?
-    remove_fieldupdates.each do |fieldupdate|
-      puts "  #{fieldupdate}"
+    if output
+      puts "FieldUpdates:" if not remove_fieldupdates.empty?
+      remove_fieldupdates.each do |fieldupdate|
+        puts "  #{fieldupdate}"
+      end
     end
 
     remove_fieldupdates

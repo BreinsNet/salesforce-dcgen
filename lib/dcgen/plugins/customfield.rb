@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Dcgen
 
-  def self.customfield master , destination
+  def self.customfield master , destination, output = true
 
     remove_customfields = []
 
@@ -31,9 +31,12 @@ module Dcgen
 
     end
 
-    puts "CustomFields:" if not remove_customfields.empty?
-    remove_customfields.each do |customfield|
-      puts "  #{customfield}"
+    
+    if output
+      puts "CustomFields:" if not remove_customfields.empty?
+      remove_customfields.each do |customfield|
+        puts "  #{customfield}"
+      end
     end
 
     remove_customfields

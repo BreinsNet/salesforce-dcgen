@@ -1,10 +1,11 @@
 module Dcgen
   class App
 
-    attr_accessor :master, :destination, :output, :exclude
+    attr_accessor :master, :destination, :output, :exclude, :verbose
 
     def initialize 
 
+      @verbose = true
       @metadata = {}
       @exclude = []
 
@@ -36,8 +37,8 @@ File generated:
 ===============
 
 #{out_file}
-      
-"  
+
+" if @verbose
 
     end
 
@@ -64,16 +65,17 @@ Changes detected:
       validate_directories
 
       # header output
-      print_header
+      print_header if @verbose
 
       # Load plugins and build metadata variables
       plugins = Dir.glob(File.dirname(__FILE__) + "/plugins/*" )
 
       plugins.each do |plugin|
+
         require_relative plugin
 
         plugin_name = plugin.match(/^.*\/(.*).rb$/)[1]
-        plugin_metadata = eval "Dcgen::#{plugin_name} @master, @destination"
+        plugin_metadata = eval "Dcgen::#{plugin_name} @master, @destination, @verbose"
         @metadata[plugin_name.to_sym] = plugin_metadata - @exclude unless plugin_metadata.nil?
 
       end

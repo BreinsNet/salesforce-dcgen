@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Dcgen
 
-  def self.label master , destination
+  def self.label master , destination, output = true
 
     remove_labels = []
 
@@ -31,9 +31,12 @@ module Dcgen
 
     end
 
-    puts "Labels:" if not remove_labels.empty?
-    remove_labels.each do |label|
-      puts "  #{label}"
+    
+    if output
+      puts "Labels:" if not remove_labels.empty?
+      remove_labels.each do |label|
+        puts "  #{label}"
+      end
     end
 
     remove_labels

@@ -37,6 +37,7 @@ Labels
 Workflow field update
 Layouts
 CustomObjects
+ValidationRules
 
 More to come...
 

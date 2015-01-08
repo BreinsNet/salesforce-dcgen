@@ -23,5 +23,5 @@ mkmf.log
 src
 destructiveChanges.xml
 *.swp
-test.rb
+test.sh
 test_data

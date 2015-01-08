@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Dcgen
 
-  def self.workflowrule master , destination
+  def self.workflowrule master , destination, output = true
 
     remove_workflowrules = []
 
@@ -31,9 +31,11 @@ module Dcgen
 
     end
 
-    puts "WorkflowRules:" if not remove_workflowrules.empty?
-    remove_workflowrules.each do |workflowrule|
-      puts "  #{workflowrule}"
+    if output
+      puts "WorkflowRules:" if not remove_workflowrules.empty?
+      remove_workflowrules.each do |workflowrule|
+        puts "  #{workflowrule}"
+      end
     end
 
     remove_workflowrules
