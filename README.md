@@ -28,6 +28,7 @@ At the moment the following metadata is supported:
 ApexClass
 ApexPage
 ApexTrigger
+ApexComponent
 ApprovalProcess
 CustomField
 Group
