@@ -1,13 +1,14 @@
 module Dcgen
   class App
 
-    attr_accessor :master, :destination, :output, :exclude, :verbose
+    attr_accessor :master, :destination, :output, :exclude, :verbose, :include
 
     def initialize 
 
       @verbose = true
       @metadata = {}
       @exclude = []
+      @include = []
 
     end
 
@@ -51,6 +52,7 @@ Diff between:
    master:      #{master} 
    destination: #{destination}:
    excluded: #{@exclude.join(' ')}
+   included: #{@include.join(' ')}
       
 Changes detected:
 =================
@@ -68,15 +70,20 @@ Changes detected:
       print_header if @verbose
 
       # Load plugins and build metadata variables
-      plugins = Dir.glob(File.dirname(__FILE__) + "/plugins/*" )
+      plugins = Dir.glob(File.dirname(__FILE__) + "/plugins/*")
 
       plugins.each do |plugin|
 
         require_relative plugin
 
         plugin_name = plugin.match(/^.*\/(.*).rb$/)[1]
-        plugin_metadata = eval "Dcgen::#{plugin_name} @master, @destination, @verbose"
-        @metadata[plugin_name.to_sym] = plugin_metadata - @exclude unless plugin_metadata.nil?
+
+        if @include.include?(plugin_name) || @include.empty?
+          plugin_metadata = eval "Dcgen::#{plugin_name} @master, @destination, @verbose" 
+          @metadata[plugin_name.to_sym] = plugin_metadata - @exclude unless plugin_metadata.nil?
+        else
+          @metadata[plugin_name.to_sym] = []
+        end
 
       end
 

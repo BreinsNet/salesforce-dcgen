@@ -30,6 +30,10 @@ parser = OptionParser.new do |opts|
     options[:exclude] = exclude.split(',')
   end
 
+  opts.on('-i', '--include CSV_METADATA_LIST', 'a CSV list of metadata to destroy only') do |include|
+    options[:include] = include.split(',')
+  end
+
   opts.on('-v', '--version', 'Show current version') do
     puts Dcgen::VERSION
     exit 0
@@ -54,7 +58,6 @@ rescue => e
   exit 1
 end
 
-
 if options[:master].nil?
   puts "error: you must specify master dir"
   exit 1
@@ -73,6 +76,7 @@ begin
   dcgen.destination = options[:destination]
   dcgen.output = options[:output] if not options[:output].nil?
   dcgen.exclude = options[:exclude] if not options[:exclude].nil?
+  dcgen.include = options[:include] if not options[:include].nil?
 
   dcgen.generate_destructive_changes
 
